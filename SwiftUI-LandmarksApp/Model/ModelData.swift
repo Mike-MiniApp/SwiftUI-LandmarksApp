@@ -1,10 +1,3 @@
-//
-//  ModelData.swift
-//  SwiftUI-LandmarksApp
-//
-//  Created by 近藤米功 on 2022/11/14.
-//
-
 import Foundation
 
 var landmarks: [Landmark] = load("landmarkData.json")
@@ -12,14 +5,15 @@ var landmarks: [Landmark] = load("landmarkData.json")
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+    else {
         fatalError("Couldn't find \(filename) in main bundle.")
     }
 
-    do{
+    do {
         data = try Data(contentsOf: file)
     } catch {
-        fatalError("Couldn't load \(filename) from main bundle")
+        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
     }
 
     do {
@@ -29,3 +23,4 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
