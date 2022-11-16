@@ -12,9 +12,8 @@ struct LandmarkList: View {
         NavigationView {
             // MARK: データのコレクションと、コレクションの各要素のビューを提供するクロージャを渡す(LandmarkはIdentifiableを準拠させる）
             List(landmarks) { landmark in
-                // LandmarkRow(landmark: landmark)
                 NavigationLink {
-                    LandmarkDetail()
+                    LandmarkDetail(landmark: landmark)
                 } label: {
                     LandmarkRow(landmark: landmark)
                 }
