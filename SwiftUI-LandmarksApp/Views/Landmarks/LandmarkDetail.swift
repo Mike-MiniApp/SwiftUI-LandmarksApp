@@ -32,6 +32,7 @@ struct LandmarkDetail: View {
                         .font(.title)
                     FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
                 }
+                // 
                 Text(landmark.name)
                     .font(.title)
 
